@@ -1,0 +1,19 @@
+<app-empleado-form (nuevoEmpleado)="agregarEmpleado($event)"></app-empleado-form>
+<app-empleado-list [empleados]="empleados"></app-empleado-list>
+
+<div *ngIf="empleados.length > 0">
+    <ul>
+        <li *ngFor="let empleado of empleados">
+            <div>
+                <img [src]="'https://api.multiavatar.com/' + empleado.nombre + '.png'" alt="Avatar">
+                <p>{{ empleado.nombre }} {{ empleado.apellidos }}</p>
+                <p>{{ empleado.email }}</p>
+                <p>Departamento: {{ empleado.departamento }}</p>
+                <p>Remoto: {{ empleado.remoto ? 'Sí' : 'No' }}</p>
+                <button (click)="marcarRemoto(empleado)">{{ empleado.remoto ? 'Marcar como presencial' : 'Marcar como
+                    remoto' }}</button>
+                <button (click)="eliminar(empleado)">Eliminar</button>
+            </div>
+        </li>
+    </ul>
+</div>

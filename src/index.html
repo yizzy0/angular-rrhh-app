@@ -1,13 +1,19 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Gestionempleados</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
+  <img [src]="'https://api.multiavatar.com/' + empleado.nombre + '.png'" alt="Avatar">
+
 <body>
   <app-root></app-root>
 </body>
+
+<app-empleado-form (nuevoEmpleado)="agregarEmpleado($event)"></app-empleado-form>
+<app-empleado-list [empleados]="empleados"></app-empleado-list>
+
 </html>

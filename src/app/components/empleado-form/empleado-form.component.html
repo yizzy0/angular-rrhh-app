@@ -1,0 +1,18 @@
+<form [formGroup]="empleadoForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label>Nombre:</label>
+        <input type="text" formControlName="nombre">
+        <div
+            *ngIf="empleadoForm.get('nombre').invalid && (empleadoForm.get('nombre').dirty || empleadoForm.get('nombre').touched)">
+            <div *ngIf="empleadoForm.get('nombre').errors.required">El nombre es requerido</div>
+        </div>
+    </div>
+
+
+    <div>
+        <label>Remoto:</label>
+        <input type="checkbox" formControlName="remoto">
+    </div>
+
+    <button type="submit" [disabled]="empleadoForm.invalid">Añadir empleado</button>
+</form>
